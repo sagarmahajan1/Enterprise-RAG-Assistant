@@ -5,3 +5,6 @@ langchain-community
 pypdf
 python-dotenv
 langchain-text-splitters
+langchain-huggingface
+sentence-transformers
+faiss-cpu
