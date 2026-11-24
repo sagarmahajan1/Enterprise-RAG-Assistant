@@ -2,13 +2,19 @@
 
 An AI-powered PDF question-answering application built using Retrieval-Augmented Generation (RAG). It allows users to upload a PDF document and ask questions based on its content.
 
-## Project Overview
+## 🚀 Live Demo
 
-This application extracts text from PDF documents, splits it into smaller chunks, converts the chunks into vector embeddings, and stores them in a FAISS vector database.
+**Try the Application:** [Enterprise RAG Assistant](https://enterprise-rag-assistant-ytrqjag8wrb32yqucmad9n.streamlit.app/)
+
+**GitHub Repository:** [Enterprise-RAG-Assistant](https://github.com/sagarmahajan1/Enterprise-RAG-Assistant)
+
+## 📌 Project Overview
+
+This application extracts text from PDF documents, splits the extracted text into smaller chunks, converts the chunks into vector embeddings, and stores them in a FAISS vector database.
 
 When a user asks a question, the application retrieves the most relevant document chunks and passes them to Google's Gemini LLM to generate a context-grounded answer.
 
-## Features
+## ✨ Features
 
 - Upload and process PDF documents.
 - Extract text using PyPDFLoader.
@@ -19,58 +25,60 @@ When a user asks a question, the application retrieves the most relevant documen
 - Display source page references.
 - Interactive chat interface using Streamlit.
 - Maintain chat history during the active session.
+- Clear chat history when required.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - Python
 - Streamlit
 - LangChain
 - Google Gemini API
 - Hugging Face Sentence Transformers
-- FAISS
+- FAISS Vector Database
 - PyPDF
+- Python Dotenv
 
-## RAG Architecture
+## 🧠 RAG Architecture
 
-1. **Document Loading:** Extract text from the uploaded PDF.
-2. **Text Chunking:** Divide extracted text into smaller chunks.
-3. **Embedding Generation:** Convert text chunks into numerical vector representations.
+1. **Document Loading:** Extract text from the uploaded PDF using PyPDFLoader.
+2. **Text Chunking:** Divide extracted text into smaller chunks using RecursiveCharacterTextSplitter.
+3. **Embedding Generation:** Convert text chunks into numerical vector representations using Hugging Face embeddings.
 4. **Vector Storage:** Store embeddings in the FAISS vector database.
 5. **Semantic Retrieval:** Retrieve the top 3 relevant chunks based on the user's question.
-6. **LLM Response:** Pass retrieved context and the question to Gemini to generate an answer.
+6. **LLM Response:** Pass the retrieved context and user question to Google Gemini to generate a context-grounded answer.
 
-## Installation & Setup
+## ⚙️ Installation & Setup
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/sagarmahajan1/Enterprise-RAG-Assistant.git
 cd Enterprise-RAG-Assistant
 ```
 
-### 2. Create a virtual environment
+### 2. Create a Virtual Environment
 
 ```bash
 python -m venv env
 ```
 
-### 3. Activate the environment
+### 3. Activate the Environment
 
-Windows:
+For Windows:
 
 ```bash
 env\Scripts\activate
 ```
 
-### 4. Install dependencies
+### 4. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 5. Configure API Key
+### 5. Configure Google Gemini API Key
 
-Create a `.env` file in the project root directory:
+Create a `.env` file in the project root directory and add your API key:
 
 ```env
 GOOGLE_API_KEY=your_google_api_key
@@ -78,13 +86,17 @@ GOOGLE_API_KEY=your_google_api_key
 
 Replace `your_google_api_key` with your actual Google Gemini API key.
 
-### 6. Run the application
+**Note:** Never upload your actual API key or `.env` file to GitHub.
+
+### 6. Run the Application
 
 ```bash
 streamlit run app.py
 ```
 
-## Project Structure
+Open the local URL displayed in your terminal to access the application.
+
+## 📂 Project Structure
 
 ```text
 Enterprise-RAG-Assistant/
@@ -92,21 +104,5 @@ Enterprise-RAG-Assistant/
 ├── app.py
 ├── requirements.txt
 ├── .gitignore
-├── .env
+├── .env                 # Create locally; not uploaded to GitHub
 │
-└── documents/
-    └── AI_Data_Science_RAG_Test_Document.pdf
-```
-
-## Future Improvements
-
-- Support for multiple PDF documents.
-- Persistent vector database storage.
-- Improved document retrieval and response quality.
-- Application deployment.
-
-## Author
-
-**Sagar Mahajan**
-
-GitHub: https://github.com/sagarmahajan1
